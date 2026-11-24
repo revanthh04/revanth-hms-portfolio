@@ -28,6 +28,7 @@ export default function Hero() {
     AOS.init({ duration: 1000, once: true, easing: 'ease-out' })
     const refresh = () => AOS.refresh()
     window.addEventListener('load', refresh)
+    if (document.readyState === 'complete') refresh()
     return () => window.removeEventListener('load', refresh)
   }, [])
 
@@ -64,8 +65,8 @@ export default function Hero() {
           <p className="text-white text-sm md:text-lg font-semibold max-w-md mt-5" data-aos="fade-up" data-aos-delay="200">{heroContent.subtitle}</p>
           <div className="flex flex-wrap gap-3 mt-6" data-aos="fade-up" data-aos-delay="400">
             <a href={heroContent.ctaPrimary.href} className="px-6 py-3 rounded-full bg-white text-black font-semibold hover:scale-105 transition-transform">{heroContent.ctaPrimary.text}</a>
-            <a href={heroContent.ctaSecondary.href} className="px-6 py-3 rounded-full bg-black/40 text-white border border-white backdrop-blur font-semibold">{heroContent.ctaSecondary.text}</a>
-            {heroContent.ctaResume?.href && <a href={heroContent.ctaResume.href} download className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-transparent border border-white/50 text-white font-semibold">
+            <a href={heroContent.ctaSecondary.href} className="px-6 py-3 rounded-full bg-black/40 text-white border border-white backdrop-blur font-semibold hover:bg-black/60 transition-colors">{heroContent.ctaSecondary.text}</a>
+            {heroContent.ctaResume?.href && <a href={heroContent.ctaResume.href} download className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-transparent border border-white/50 text-white font-semibold hover:bg-white/20 transition-colors">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5" aria-hidden="true"><path d="M14 2H6v20h12V6zM14 2v5h5M12 10v7m-3-3 3 3 3-3" /></svg>{heroContent.ctaResume.text}
             </a>}
           </div>

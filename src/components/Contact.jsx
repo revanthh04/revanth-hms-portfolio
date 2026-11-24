@@ -11,11 +11,8 @@ export default function Contact() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], ['-20%', '30%'])
   const { serviceId, templateId, publicKey } = emailjsConfig
-  const isConfigured = Boolean(
-    serviceId && templateId && publicKey &&
-    serviceId !== 'YOUR_EMAILJS_SERVICE_ID' &&
-    templateId !== 'YOUR_EMAILJS_TEMPLATE_ID' &&
-    publicKey !== 'YOUR_EMAILJS_PUBLIC_KEY'
+  const isConfigured = [serviceId, templateId, publicKey].every(
+    (value) => Boolean(value) && !value.startsWith('YOUR' + '_')
   )
 
   useEffect(() => () => clearTimeout(resetTimer.current), [])
@@ -100,7 +97,7 @@ export default function Contact() {
             <label className="flex items-start gap-3 text-sm"><input type="checkbox" required disabled={status === 'sending'} className="mt-1 w-4 h-4 accent-black shrink-0" /><span>{contactContent.permission}</span></label>
             <p className="text-sm text-white/80 max-w-xl">{isConfigured ? contactContent.note : contactContent.fallbackNote}</p>
             <a href={`mailto:${personalInfo.emails.primary}`} className="text-sm underline underline-offset-4 break-words">{contactContent.urgent} {personalInfo.emails.primary}</a>
-            <button type="submit" disabled={status === 'sending'} className={`group self-start inline-flex items-center gap-3 rounded-full border border-white/60 px-7 py-4 font-bold transition-colors ${buttonStyles[status]}`}>
+            <button type="submit" aria-label={buttonText[status]} disabled={status === 'sending'} className={`group self-start inline-flex items-center gap-3 rounded-full border border-white/60 px-7 py-4 font-bold transition-colors ${buttonStyles[status]}`}>
               {status === 'sending' && <span className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" aria-hidden="true" />}
               <span role="status" aria-live="polite">{buttonText[status]}</span>
               {status === 'idle' && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6" /></svg>}

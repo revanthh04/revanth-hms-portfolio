@@ -20,8 +20,9 @@ export default function About() {
         <motion.div initial={{ y: -300, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true, amount: 0.15 }} transition={{ type: 'spring', stiffness: 110, damping: 9, mass: 1.1 }} className="relative w-full md:w-[350px] shrink-0 flex flex-col items-center">
           <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-3 h-40 bg-black" />
           <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-10 rounded bg-gray-400 z-10" />
-          <button type="button" aria-label={mediaLabels.flip} aria-pressed={flipped} onClick={() => setFlipped(!flipped)} className="relative w-full max-w-[280px] -rotate-3 hover:rotate-0 transition-transform duration-500 [perspective:1200px] focus:outline-none focus-visible:ring-4 focus-visible:ring-white rounded-2xl">
-            <div className="relative w-full aspect-[3/4] transition-transform duration-700 [transform-style:preserve-3d]" style={{ transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
+          <div className="relative w-full max-w-[280px] -rotate-3 hover:rotate-0 transition-transform duration-500 [perspective:1200px] focus:outline-none focus-visible:ring-4 focus-visible:ring-white rounded-2xl">
+            <button type="button" aria-label={mediaLabels.flip} aria-pressed={flipped} onClick={() => setFlipped(!flipped)} className="absolute inset-0 rounded-2xl focus-visible:outline-4 focus-visible:outline-white cursor-pointer" />
+            <div className="relative pointer-events-none w-full aspect-[3/4] transition-transform duration-700 [transform-style:preserve-3d]" style={{ transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
               <div aria-hidden={flipped} className="absolute inset-0 [backface-visibility:hidden] bg-gray-900 rounded-2xl p-3 shadow-2xl flex flex-col">
                 <div className="w-12 h-2 bg-black rounded-full mx-auto mb-3 shrink-0" />
                 <img src={stackImage} alt={personalInfo.name} className="w-full min-h-0 flex-1 aspect-[3/4] rounded-xl object-cover object-top" />
@@ -34,7 +35,7 @@ export default function About() {
                   {rows.filter(({ value }) => value).map(({ value, href, external, icon }) => (
                     <div key={value} className="flex items-center gap-2 text-xs text-white/85">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 shrink-0 text-red-400" aria-hidden="true"><path d={icon} /></svg>
-                      {href ? <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} onClick={(e) => e.stopPropagation()} onKeyDown={(e) => e.stopPropagation()} className="break-all hover:underline">{value}</a> : <span>{value}</span>}
+                      {href ? <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} onClick={(e) => e.stopPropagation()} onKeyDown={(e) => e.stopPropagation()} className="relative pointer-events-auto break-all hover:underline">{value}</a> : <span>{value}</span>}
                     </div>
                   ))}
                 </div>
@@ -44,7 +45,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </button>
+          </div>
           <p className="text-xs font-bold text-black/60 mt-4">{mediaLabels.flipHint}</p>
         </motion.div>
         <div data-aos="fade-left" className="flex-1">

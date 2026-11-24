@@ -20,7 +20,7 @@ function ProjectCard({ project, aosDelay }) {
         <div className="flex flex-wrap gap-2 mt-6">{project.techTags.map((tag) => <span key={tag} className="rounded-full text-xs font-bold border border-white/10 bg-white/5 px-3 py-2 hover:bg-red-500/10 hover:text-red-400 transition-colors">{tag}</span>)}</div>
         <div className="flex flex-wrap gap-3 mt-7">
           {project.links.github && <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/20 text-white hover:bg-white/10"><GitHubIcon />{content.github}</a>}
-          {hasDemo ? <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#ff2a2a] text-white font-bold"><ExternalLinkIcon />{content.demo}</a> : <a href="#" aria-disabled="true" onClick={(event) => event.preventDefault()} className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/5 text-white/30 cursor-not-allowed">{content.comingSoon}</a>}
+          {hasDemo ? <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#ff2a2a] text-white font-bold hover:bg-red-700 transition-colors"><ExternalLinkIcon />{content.demo}</a> : <a href="#" aria-disabled="true" onClick={(event) => event.preventDefault()} className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/5 text-white/30 cursor-not-allowed">{content.comingSoon}</a>}
         </div>
       </div>
     </div>

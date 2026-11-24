@@ -11,3 +11,6 @@
 
 html { scroll-behavior: smooth; }
 body { margin: 0; padding: 0; background-color: #000; color: #fff; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+/* Keep anchor headings clear of the fixed navigation. */
+section[id] { scroll-margin-top: 5rem; }
