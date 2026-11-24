@@ -25,7 +25,7 @@ export default function About() {
             <div className="relative pointer-events-none w-full aspect-[3/4] transition-transform duration-700 [transform-style:preserve-3d]" style={{ transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
               <div aria-hidden={flipped} className="absolute inset-0 [backface-visibility:hidden] bg-gray-900 rounded-2xl p-3 shadow-2xl flex flex-col">
                 <div className="w-12 h-2 bg-black rounded-full mx-auto mb-3 shrink-0" />
-                <img src={stackImage} alt={personalInfo.name} className="w-full min-h-0 flex-1 aspect-[3/4] rounded-xl object-cover object-top" />
+                <img src={stackImage} alt={aboutContent.portraitAlt} className="w-full min-h-0 flex-1 aspect-[3/4] rounded-xl object-cover object-top" />
               </div>
               <div aria-hidden={!flipped} inert={!flipped} className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-gradient-to-br from-[#141414] to-[#1f1f1f] border-t-[6px] border-[#ff2a2a] p-5 text-white text-left shadow-2xl flex flex-col">
                 <h3 className="text-xl font-black">{personalInfo.brandName}<span className="text-[#ff2a2a]">.</span></h3>

@@ -53,6 +53,7 @@ export const heroContent = {
 }
 
 export const aboutContent = {
+  portraitAlt: 'Revanth HMS — Java Full Stack Developer, TAP Academy student',
   heading: 'Hello!',
   bio: `Hi, my name is <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Revanth HMS</span>, a software developer based in Bengaluru, India, skilled in Java, full-stack web development, and Generative AI. I build RAG pipelines and scalable backend applications, and trained through the placement training program at TAP Academy. I enjoy solving complex engineering problems and building user-friendly, intelligent software solutions.`,
   techStack: ['Java', 'Python', 'JavaScript', 'Generative AI'],
