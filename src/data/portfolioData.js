@@ -30,6 +30,7 @@ export const navigationContent = {
 }
 
 export const footerContent = {
+  displayName: 'REVANTH',
   taglines: ['Java Full Stack Developer', 'Java · Web Development · Generative AI', 'Building intelligent web applications'],
   credential: 'B.Tech Electronics and Communication Engineering',
   copyright: `© ${new Date().getFullYear()} Revanth HMS | Built with React`,

@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="py-20 md:py-24 overflow-hidden">
-        <h2 className="text-center text-[18vw] md:text-[16vw] leading-none font-sans font-bold tracking-tighter lowercase select-none text-[#f4f4f4]">{personalInfo.brandName.toLowerCase()}</h2>
+        <h2 className="text-center text-[18vw] md:text-[16vw] leading-none font-sans font-bold tracking-tighter uppercase select-none text-[#f4f4f4]">{footerContent.displayName}</h2>
       </div>
       <div className="grid grid-cols-3 gap-4 md:gap-12 items-end">
         <div className="flex flex-col gap-3 min-w-0">
